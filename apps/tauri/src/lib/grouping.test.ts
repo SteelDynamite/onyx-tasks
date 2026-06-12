@@ -5,6 +5,15 @@ import type { Task } from "./types";
 // 2026-04-17 12:00 local time — "today" in the fixtures below.
 const NOW = new Date(2026, 3, 17, 12, 0, 0);
 
+// The app stores task dates as local moments serialized with toISOString()
+// (see DateTimePicker / TasksScreen handleDrop), and groupTasksByDate buckets
+// by *local* calendar day. Build fixtures the same way so they're
+// timezone-independent — hardcoded "...T00:00:00Z" strings only land on the
+// intended calendar day for machines at UTC or east of it.
+function iso(day: number, hour = 0, minute = 0): string {
+  return new Date(2026, 3, day, hour, minute, 0).toISOString();
+}
+
 function task(partial: Partial<Task> & { id: string }): Task {
   return {
     id: partial.id,
@@ -26,9 +35,9 @@ describe("groupTasksByDate", () => {
 
   it("puts 'No Date' last — regression: was first, burying urgent tasks", () => {
     const tasks = [
-      task({ id: "overdue", date: "2026-04-15T00:00:00Z" }),
+      task({ id: "overdue", date: iso(15) }),
       task({ id: "no-date" }),
-      task({ id: "today", date: "2026-04-17T09:00:00Z" }),
+      task({ id: "today", date: iso(17, 9) }),
     ];
     const labels = groupTasksByDate(tasks, NOW).map((g) => g.label);
     expect(labels).toEqual(["Overdue", "Today", "No Date"]);
@@ -37,10 +46,10 @@ describe("groupTasksByDate", () => {
   it("orders dated buckets: Overdue, Today, Tomorrow, future…, then No Date", () => {
     const tasks = [
       task({ id: "nd1" }),
-      task({ id: "future", date: "2026-04-20T00:00:00Z" }),
-      task({ id: "tomorrow", date: "2026-04-18T00:00:00Z" }),
-      task({ id: "today", date: "2026-04-17T09:00:00Z" }),
-      task({ id: "overdue", date: "2026-04-10T00:00:00Z" }),
+      task({ id: "future", date: iso(20) }),
+      task({ id: "tomorrow", date: iso(18) }),
+      task({ id: "today", date: iso(17, 9) }),
+      task({ id: "overdue", date: iso(10) }),
     ];
     const labels = groupTasksByDate(tasks, NOW).map((g) => g.label);
     expect(labels[0]).toBe("Overdue");
@@ -52,22 +61,22 @@ describe("groupTasksByDate", () => {
   });
 
   it("drops empty buckets", () => {
-    const tasks = [task({ id: "t1", date: "2026-04-17T08:00:00Z" })];
+    const tasks = [task({ id: "t1", date: iso(17, 8) })];
     expect(groupTasksByDate(tasks, NOW).map((g) => g.label)).toEqual(["Today"]);
   });
 
   it("sorts tasks within a bucket by due time ascending, stable on ties", () => {
     const tasks = [
-      task({ id: "b", date: "2026-04-17T15:00:00Z", has_time: true }),
-      task({ id: "a", date: "2026-04-17T09:00:00Z", has_time: true }),
-      task({ id: "c", date: "2026-04-17T15:00:00Z", has_time: true }),
+      task({ id: "b", date: iso(17, 15), has_time: true }),
+      task({ id: "a", date: iso(17, 9), has_time: true }),
+      task({ id: "c", date: iso(17, 15), has_time: true }),
     ];
     const today = groupTasksByDate(tasks, NOW).find((g) => g.label === "Today")!;
     expect(today.tasks.map((t) => t.id)).toEqual(["a", "b", "c"]);
   });
 
   it("places a task with today's date but time before 'now' in the Today bucket (not Overdue)", () => {
-    const tasks = [task({ id: "earlier-today", date: "2026-04-17T08:00:00Z" })];
+    const tasks = [task({ id: "earlier-today", date: iso(17, 8) })];
     const groups = groupTasksByDate(tasks, NOW);
     expect(groups.map((g) => g.label)).toEqual(["Today"]);
   });
@@ -84,8 +93,8 @@ describe("groupTasksByDate", () => {
 
   it("groups multiple tasks on the same future day under one label", () => {
     const tasks = [
-      task({ id: "f1", date: "2026-04-25T09:00:00Z", has_time: true }),
-      task({ id: "f2", date: "2026-04-25T14:00:00Z", has_time: true }),
+      task({ id: "f1", date: iso(25, 9), has_time: true }),
+      task({ id: "f2", date: iso(25, 14), has_time: true }),
     ];
     const groups = groupTasksByDate(tasks, NOW);
     const future = groups.find((g) => g.date?.getDate() === 25);
