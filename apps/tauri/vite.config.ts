@@ -25,7 +25,11 @@ export default defineConfig({
     // lifecycle_function_unavailable.
     server: { deps: { inline: ["@testing-library/svelte"] } },
   },
-  resolve: {
-    conditions: process.env.VITEST ? ["browser"] : [],
-  },
+  // Vite 6: resolve.conditions REPLACES the default client conditions
+  // (module/browser/development|production) instead of extending them.
+  // An empty [] outside Vitest stripped the browser condition, so the dep
+  // optimizer resolved svelte to its server entry and mount() threw
+  // lifecycle_function_unavailable — a blank window. Only override
+  // resolution under Vitest; leave Vite's defaults intact otherwise.
+  ...(process.env.VITEST ? { resolve: { conditions: ["browser"] } } : {}),
 });
