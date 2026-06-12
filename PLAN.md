@@ -756,7 +756,7 @@ WorkspaceConfig {
 - [x] Drag-and-drop task reordering
 - [x] Sliding lists drawer (80cqi wide, left side)
 - [x] Settings popup overlay (WebDAV config, theme selector, window decorations)
-- [x] Per-workspace theme system (System default, Light, Dark, Nord, Dracula, Solarized Dark, Black and Gold, Ink, plus the Editorial family: Paper, Mono, Cream, Dusk, Dusk Cool, Dusk Nord, Ink, Ink Cool)
+- [x] Per-workspace theme system (System default plus the Editorial family: Paper, Mono, Cream, Dusk, Dusk Cool, Dusk Nord, Ink, Ink Cool; the original Light/Dark/Nord/Dracula/Solarized/Black-and-Gold/Ink themes were replaced by the editorial set from the design handoff)
 - [x] Animated completed section show/hide
 - [x] Move task between lists (kebab menu → "Move to..." inline list in task detail view, not a submenu)
 - [x] Optional time on due dates (`has_time: bool` field on Task with `#[serde(default)]` for backward compat; replaces the hours==0 heuristic)

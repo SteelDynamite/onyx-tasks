@@ -312,7 +312,7 @@
   style="width: calc(100cqi + 80cqi); transform: translateX({translateX})"
 >
   <!-- Drawer panel -->
-  <div class="relative flex h-full shrink-0 flex-col bg-surface-light dark:bg-surface-dark" style="width: 80cqi">
+  <div class="drawer relative flex h-full shrink-0 flex-col bg-surface-light dark:bg-surface-dark" style="width: 80cqi">
     {#if showWorkspacePicker}
       <!-- svelte-ignore a11y_no_static_element_interactions -->
       <div class="absolute inset-0 z-[39]" onclick={() => (showWorkspacePicker = false)}></div>
@@ -327,7 +327,7 @@
       <div class="relative min-w-0 flex-1">
         <button
           onclick={() => (showWorkspacePicker = !showWorkspacePicker)}
-          class="flex items-center gap-1.5 rounded-lg px-2 py-1 text-sm font-semibold hover:bg-black/5 dark:hover:bg-white/10"
+          class="drawer-workspace flex items-center gap-1.5 rounded-lg px-2 py-1 text-sm font-semibold hover:bg-black/5 dark:hover:bg-white/10"
         >
           <span class="truncate">{app.config?.current_workspace ? app.config.workspaces[app.config.current_workspace]?.name ?? "Workspace" : "Workspace"}</span>
           <svg class="h-3.5 w-3.5 shrink-0 transition-transform {showWorkspacePicker ? 'rotate-180' : ''}" viewBox="0 0 20 20" fill="currentColor">
@@ -397,7 +397,7 @@
       {#each app.lists as list (list.id)}
         <button
           onclick={() => { app.selectList(list.id); taskStack = []; showCompleted = false; completedVisible = false; closeDrawer(); }}
-          class="group flex w-full items-center gap-2 px-5 py-2.5 text-left text-sm hover:bg-black/5 dark:hover:bg-white/10 {list.id === app.activeListId ? 'font-bold' : ''}"
+          class="drawer-list-item group flex w-full items-center gap-2 px-5 py-2.5 text-left text-sm hover:bg-black/5 dark:hover:bg-white/10 {list.id === app.activeListId ? 'active font-bold' : ''}"
         >
           {#if list.id === app.activeListId}
             <svg class="h-4 w-4 shrink-0 opacity-50" viewBox="0 0 20 20" fill="currentColor">
@@ -421,13 +421,13 @@
                 type="text"
                 bind:value={newListName}
                 placeholder="List name"
-                class="min-w-0 flex-1 rounded-lg border border-border-light bg-transparent px-3 py-2 text-sm outline-none focus:border-primary dark:border-border-dark"
+                class="input min-w-0 flex-1 rounded-lg border border-border-light bg-transparent px-3 py-2 text-sm outline-none focus:border-primary dark:border-border-dark"
                 onkeydown={(e) => { if (e.key === "Enter") handleNewList(); if (e.key === "Escape") { showNewList = false; newListName = ""; } }}
               />
               <button
                 onclick={handleNewList}
                 disabled={!newListName.trim()}
-                class="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white disabled:opacity-40"
+                class="btn-primary rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white disabled:opacity-40"
               >
                 Add
               </button>
@@ -642,12 +642,12 @@
               type="text"
               bind:this={renameListInput}
               bind:value={renameValue}
-              class="w-full bg-transparent text-xl font-bold outline-none"
+              class="screen-title w-full bg-transparent text-xl font-bold outline-none"
               onkeydown={(e) => { if (e.key === "Enter") handleRenameList(); if (e.key === "Escape") renamingListId = null; }}
               onblur={handleRenameList}
             />
           {:else}
-            <p class="text-xl font-bold">{app.activeList?.title ?? "Tasks"}</p>
+            <p class="screen-title text-xl font-bold">{app.activeList?.title ?? "Tasks"}</p>
           {/if}
         </div>
 
@@ -662,7 +662,7 @@
               {:else}
                 <button
                   onclick={() => { showDrawer = true; showNewList = true; }}
-                  class="mt-4 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover"
+                  class="btn-primary mt-4 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-hover"
                 >
                   Create a list
                 </button>
@@ -675,7 +675,7 @@
           {:else}
             {#if app.groupedPendingTasks}
               {#each app.groupedPendingTasks as group (group.label)}
-                <div class="px-4 pb-1 pt-4 text-xs font-semibold uppercase tracking-wider opacity-40">{group.label}</div>
+                <div class="group-header px-4 pb-1 pt-4 text-xs font-semibold uppercase tracking-wider opacity-40">{group.label}</div>
                 {#each group.tasks as task (task.id)}
                   <!-- svelte-ignore a11y_no_static_element_interactions -->
                   <div
@@ -734,7 +734,7 @@
                     requestAnimationFrame(() => (showCompleted = true));
                   }
                 }}
-                class="relative z-10 flex w-full items-center justify-between border-t border-border-light bg-surface-light px-4 py-3 text-sm font-medium text-text-secondary-light transition-colors hover:bg-black/5 dark:border-border-dark dark:bg-surface-dark dark:text-text-secondary-dark dark:hover:bg-white/5"
+                class="completed-header relative z-10 flex w-full items-center justify-between border-t border-border-light bg-surface-light px-4 py-3 text-sm font-medium text-text-secondary-light transition-colors hover:bg-black/5 dark:border-border-dark dark:bg-surface-dark dark:text-text-secondary-dark dark:hover:bg-white/5"
               >
                 Completed ({app.completedTasks.length})
                 <svg
@@ -769,7 +769,7 @@
             <button
               onclick={() => { if (app.activeListId) newTaskState.open = true; }}
               disabled={!app.activeListId}
-              class="pointer-events-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-transform hover:scale-105 active:scale-95 disabled:opacity-40 disabled:shadow-none"
+              class="fab pointer-events-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-transform hover:scale-105 active:scale-95 disabled:opacity-40 disabled:shadow-none"
             >
               <svg class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
