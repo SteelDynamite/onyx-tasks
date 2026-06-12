@@ -60,7 +60,7 @@ onyx/
 - Drag-and-drop reordering
 - Sliding lists drawer, settings popup
 - Workspace switcher with add/remove
-- Per-workspace theme system (System default, Light, Dark, Nord, Dracula, Solarized Dark, Black and Gold, Ink)
+- Per-workspace theme system (System default, Light, Dark, Nord, Dracula, Solarized Dark, Black and Gold, Ink, plus an Editorial family: Paper, Mono, Cream, Dusk, Dusk Cool, Dusk Nord, Ink, Ink Cool)
 - Due date picker/editor with optional time
 - Subtask hierarchy with three-panel slide navigation
 - Move tasks between lists
