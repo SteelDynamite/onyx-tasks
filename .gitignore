@@ -11,6 +11,10 @@ build/
 .env
 .env.*
 
+# Claude Code (machine-local session config)
+.claude/settings.local.json
+.claude/launch.json
+
 # IDE
 .idea/
 .vscode/
