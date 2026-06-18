@@ -288,13 +288,14 @@
       class="w-full appearance-none rounded-lg border border-border-light bg-surface-light px-3 py-2 text-sm text-text-light outline-none focus:border-primary dark:border-border-dark dark:bg-surface-dark dark:text-text-dark"
     >
       <option value="">System default</option>
-      <option value="light">Light</option>
-      <option value="dark">Dark</option>
-      <option value="nord">Nord</option>
-      <option value="dracula">Dracula</option>
-      <option value="solarized">Solarized Dark</option>
-      <option value="onyx">Black and Gold</option>
-      <option value="ink">Ink</option>
+      <option value="ed-paper">Editorial Paper</option>
+      <option value="ed-mono">Editorial Mono</option>
+      <option value="editorial">Editorial Cream</option>
+      <option value="ed-dusk">Editorial Dusk</option>
+      <option value="ed-dusk-cool">Editorial Dusk Cool</option>
+      <option value="ed-dusk-nord">Editorial Dusk Nord</option>
+      <option value="ed-ink">Editorial Ink</option>
+      <option value="ed-ink-cool">Editorial Ink Cool</option>
     </select>
   </section>
 

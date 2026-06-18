@@ -65,7 +65,7 @@
 >
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-  class="rounded-t-2xl bg-surface-light shadow-xl transition-transform duration-250 ease-out dark:bg-card-dark {newTaskState.open ? 'translate-y-0' : 'translate-y-full'}"
+  class="sheet rounded-t-2xl bg-surface-light shadow-xl transition-transform duration-250 ease-out dark:bg-card-dark {newTaskState.open ? 'translate-y-0' : 'translate-y-full'}"
   onclick={(e) => e.stopPropagation()}
 >
   <form onsubmit={(e) => { e.preventDefault(); handleSubmit(); }} class="px-4 pt-4">
@@ -75,7 +75,7 @@
       type="text"
       bind:value={title}
       placeholder="Task title"
-      class="w-full bg-transparent text-xl font-bold outline-none placeholder:opacity-30"
+      class="sheet-input w-full bg-transparent text-xl font-bold outline-none placeholder:opacity-30"
       onkeydown={(e) => { if (e.key === "Escape") handleClose(); }}
     />
 
@@ -99,7 +99,7 @@
         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
       </svg>
       {#if date}
-        <div class="flex items-center gap-1.5 rounded-full border border-border-light bg-black/5 px-3 py-1 text-sm dark:border-border-dark dark:bg-white/10">
+        <div class="detail-date-chip flex items-center gap-1.5 rounded-full border border-border-light bg-black/5 px-3 py-1 text-sm dark:border-border-dark dark:bg-white/10">
           <button type="button" onclick={() => (showDatePicker = true)} class="hover:opacity-70">
             {formatDateChip(date, dateHasTime)}
           </button>

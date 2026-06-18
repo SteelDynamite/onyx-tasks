@@ -308,9 +308,9 @@
   </header>
 
   <div class="flex flex-1 flex-col items-center justify-center p-6">
-    <h1 class="-mt-8 mb-6 text-6xl font-bold">Onyx</h1>
+    <h1 class="wordmark -mt-8 mb-6 text-6xl font-bold">Onyx</h1>
     <div
-      class="w-full max-w-sm rounded-2xl bg-card-light p-8 shadow-lg dark:bg-card-dark"
+      class="setup-card w-full max-w-sm rounded-2xl bg-card-light p-8 shadow-lg dark:bg-card-dark"
     >
       {#if mode === null}
         <!-- Step 1: Choose mode -->
@@ -320,9 +320,9 @@
 
         <button
           onclick={() => (mode = "local")}
-          class="mb-3 w-full rounded-xl border border-border-light p-4 text-left hover:bg-black/5 dark:border-border-dark dark:hover:bg-white/10"
+          class="mode-card mb-3 w-full rounded-xl border border-border-light p-4 text-left hover:bg-black/5 dark:border-border-dark dark:hover:bg-white/10"
         >
-          <p class="text-sm font-semibold">Local Folder</p>
+          <p class="mode-card-title text-sm font-semibold">Local Folder</p>
           <p class="mt-0.5 text-xs text-text-secondary-light dark:text-text-secondary-dark">
             Pick a folder on your computer. Files stay local.
           </p>
@@ -330,9 +330,9 @@
 
         <button
           onclick={() => (mode = "webdav")}
-          class="mb-3 w-full rounded-xl border border-border-light p-4 text-left hover:bg-black/5 dark:border-border-dark dark:hover:bg-white/10"
+          class="mode-card mb-3 w-full rounded-xl border border-border-light p-4 text-left hover:bg-black/5 dark:border-border-dark dark:hover:bg-white/10"
         >
-          <p class="text-sm font-semibold">WebDAV Server</p>
+          <p class="mode-card-title text-sm font-semibold">WebDAV Server</p>
           <p class="mt-0.5 text-xs text-text-secondary-light dark:text-text-secondary-dark">
             Connect to a WebDAV server. The app manages local files automatically.
           </p>
@@ -340,9 +340,9 @@
 
         <button
           onclick={() => (mode = "googletasks")}
-          class="w-full rounded-xl border border-border-light p-4 text-left hover:bg-black/5 dark:border-border-dark dark:hover:bg-white/10"
+          class="mode-card w-full rounded-xl border border-border-light p-4 text-left hover:bg-black/5 dark:border-border-dark dark:hover:bg-white/10"
         >
-          <p class="text-sm font-semibold">Google Tasks</p>
+          <p class="mode-card-title text-sm font-semibold">Google Tasks</p>
           <p class="mt-0.5 text-xs text-text-secondary-light dark:text-text-secondary-dark">
             Read your Google Tasks. Sign in with Google to sync. Read-only.
           </p>

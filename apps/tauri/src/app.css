@@ -1,5 +1,78 @@
 @import "tailwindcss";
 
+/* ── Self-hosted fonts ───────────────────────────────────────────── */
+/* Subset woff2 files vendored from Google Fonts into public/fonts/.
+   Inter and Noto Sans are variable fonts (single file per subset
+   covering the declared weight range). Latin + Latin Extended only —
+   other scripts fall back to the system stack. */
+
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/noto-sans-normal-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/noto-sans-normal-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/inter-normal-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/inter-normal-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/instrument-serif-normal-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/instrument-serif-normal-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/instrument-serif-italic-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/instrument-serif-italic-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -42,6 +115,52 @@ body {
   --safe-bottom: env(safe-area-inset-bottom);
 }
 
+/* ── Date chips + checkbox check (cross-theme design pass) ───────── */
+/* Chips always use a readable sans with a solid fill distinct from the
+   surface; the checkmark inside a filled checkbox always matches the
+   FAB's on-primary color. Themes override the variables below. */
+
+:root {
+  --chip-bg: #f1f3f5;
+  --chip-text: #374151;
+  --chip-overdue-bg: #fee2e2;
+  --chip-overdue-text: #b91c1c;
+  --on-primary: #ffffff;
+}
+.dark {
+  --chip-bg: #3a3a3a;
+  --chip-text: #d1d5db;
+  --chip-overdue-bg: rgb(239 68 68 / 0.22);
+  --chip-overdue-text: #f1a5a5;
+}
+
+.chip,
+.detail-date-chip {
+  background: var(--chip-bg);
+  color: var(--chip-text);
+  border-color: transparent;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+  opacity: 1;
+}
+.chip {
+  padding: 2px 10px;
+}
+.chip.chip-overdue,
+.detail-date-chip.chip-overdue {
+  background: var(--chip-overdue-bg);
+  color: var(--chip-overdue-text);
+}
+
+.task-check {
+  color: var(--on-primary);
+  stroke: currentColor;
+  stroke-width: 0.8;
+}
+
 .linux-window-border {
   border: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25), 0 0 2px rgba(0, 0, 0, 0.1);
@@ -75,9 +194,16 @@ body {
   color: #e5e7eb;
 }
 
-/* ── Theme overrides ─────────────────────────────────────────────── */
+/* ── Editorial theme family ──────────────────────────────────────── */
+/* From the Onyx Design System handoff: Instrument Serif italic display
+   type + Inter body over paper-tone palettes. Eight variants:
+   ed-paper, ed-mono, editorial (cream), ed-dusk, ed-dusk-cool,
+   ed-dusk-nord, ed-ink, ed-ink-cool. Shared skin rules target the
+   semantic hook classes in components and are scoped to
+   :is([data-theme="editorial"], [data-theme^="ed-"]). */
 
-[data-theme="light"] {
+/* Editorial · Paper — default blue/gray palette, editorial type */
+[data-theme="ed-paper"] {
   --color-primary: #2d87b8;
   --color-primary-hover: #2474a0;
   --color-surface-light: #ffffff;
@@ -90,162 +216,336 @@ body {
   --color-text-secondary-dark: #6b7280;
   --color-border-light: #e5e7eb;
   --color-border-dark: #e5e7eb;
+  --color-danger: #ef4444;
+  --chip-bg: #eef1f5;
+  --chip-text: #374151;
+  --chip-overdue-bg: #fee2e2;
+  --chip-overdue-text: #b91c1c;
+  --on-primary: #ffffff;
+  --row-border: #eef0f3;
+  --checkbox-border: #9ca3af;
+  --drawer-bg: #f9fafb;
+  --fab-shadow: 0 4px 14px rgba(45, 135, 184, 0.35);
+  --dialog-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.12);
 }
 
-[data-theme="dark"] {
-  --color-primary: #2d87b8;
-  --color-primary-hover: #2474a0;
-  --color-surface-light: #242424;
-  --color-surface-dark: #242424;
-  --color-card-light: #303030;
-  --color-card-dark: #303030;
-  --color-text-light: #e5e7eb;
-  --color-text-dark: #e5e7eb;
-  --color-text-secondary-light: #9ca3af;
-  --color-text-secondary-dark: #9ca3af;
-  --color-border-light: #3d3d3d;
-  --color-border-dark: #3d3d3d;
+/* Editorial · Mono — pure white paper, pure black ink */
+[data-theme="ed-mono"] {
+  --color-primary: #000000;
+  --color-primary-hover: #1a1a1a;
+  --color-surface-light: #ffffff;
+  --color-surface-dark: #ffffff;
+  --color-card-light: #f5f5f5;
+  --color-card-dark: #f5f5f5;
+  --color-text-light: #000000;
+  --color-text-dark: #000000;
+  --color-text-secondary-light: #707070;
+  --color-text-secondary-dark: #707070;
+  --color-border-light: #d8d8d8;
+  --color-border-dark: #d8d8d8;
+  --color-danger: #000000;
+  --chip-bg: #e8e8e8;
+  --chip-text: #000000;
+  --chip-overdue-bg: #000000;
+  --chip-overdue-text: #ffffff;
+  --on-primary: #ffffff;
+  --row-border: #d8d8d8;
+  --checkbox-border: #000000;
+  --drawer-bg: #f5f5f5;
+  --fab-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --dialog-shadow: 6px 6px 0 #000000;
 }
 
-[data-theme="nord"] {
+/* Editorial · Cream — warm cream paper, deep forest primary */
+[data-theme="editorial"] {
+  --color-primary: #2b5540;
+  --color-primary-hover: #1e4030;
+  --color-surface-light: #f5f0e6;
+  --color-surface-dark: #f5f0e6;
+  --color-card-light: #ebe4d4;
+  --color-card-dark: #ebe4d4;
+  --color-text-light: #1d1a14;
+  --color-text-dark: #1d1a14;
+  --color-text-secondary-light: #6b6558;
+  --color-text-secondary-dark: #6b6558;
+  --color-border-light: #d9cfb9;
+  --color-border-dark: #d9cfb9;
+  --color-danger: #8a2f2f;
+  --chip-bg: #ece4cc;
+  --chip-text: #4a4638;
+  --chip-overdue-bg: #e9ccc4;
+  --chip-overdue-text: #8a3a2e;
+  --on-primary: #f5f0e6;
+  --row-border: #e4dcc7;
+  --checkbox-border: #a69e8a;
+  --drawer-bg: #efe8d7;
+  --fab-shadow: 0 4px 14px rgba(43, 85, 64, 0.35);
+  --dialog-shadow: 0 20px 30px -10px rgba(29, 26, 20, 0.15);
+}
+
+/* Editorial · Dusk (warm) — soft dark, warm charcoal, aged gold */
+[data-theme="ed-dusk"] {
+  --color-primary: #c9a55a;
+  --color-primary-hover: #b49149;
+  --color-surface-light: #36322a;
+  --color-surface-dark: #36322a;
+  --color-card-light: #403b31;
+  --color-card-dark: #403b31;
+  --color-text-light: #ece4cf;
+  --color-text-dark: #ece4cf;
+  --color-text-secondary-light: #a29984;
+  --color-text-secondary-dark: #a29984;
+  --color-border-light: #54493b;
+  --color-border-dark: #54493b;
+  --color-danger: #cf776a;
+  --chip-bg: #453e30;
+  --chip-text: #d8cfb8;
+  --chip-overdue-bg: rgb(207 119 106 / 0.22);
+  --chip-overdue-text: #ecb8ae;
+  --on-primary: #36322a;
+  --row-border: #4a4135;
+  --checkbox-border: #6e614e;
+  --drawer-bg: #2e2a23;
+  --fab-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  --dialog-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* Editorial · Dusk (cool) — soft dark, cool slate, muted sage */
+[data-theme="ed-dusk-cool"] {
+  --color-primary: #9ab8a4;
+  --color-primary-hover: #86a691;
+  --color-surface-light: #2e343a;
+  --color-surface-dark: #2e343a;
+  --color-card-light: #363d45;
+  --color-card-dark: #363d45;
+  --color-text-light: #e4e8ec;
+  --color-text-dark: #e4e8ec;
+  --color-text-secondary-light: #8a939d;
+  --color-text-secondary-dark: #8a939d;
+  --color-border-light: #454e58;
+  --color-border-dark: #454e58;
+  --color-danger: #c97a7a;
+  --chip-bg: #3a424c;
+  --chip-text: #c8d0da;
+  --chip-overdue-bg: rgb(201 122 122 / 0.22);
+  --chip-overdue-text: #eab7b7;
+  --on-primary: #2e343a;
+  --row-border: #3c444d;
+  --checkbox-border: #5a6470;
+  --drawer-bg: #262b31;
+  --fab-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  --dialog-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* Editorial · Dusk (Nord) — Polar Night paper, Frost primary */
+[data-theme="ed-dusk-nord"] {
   --color-primary: #88c0d0;
-  --color-primary-hover: #7ab3c3;
+  --color-primary-hover: #81a1c1;
   --color-surface-light: #2e3440;
   --color-surface-dark: #2e3440;
   --color-card-light: #3b4252;
   --color-card-dark: #3b4252;
   --color-text-light: #eceff4;
   --color-text-dark: #eceff4;
-  --color-text-secondary-light: #d8dee9;
-  --color-text-secondary-dark: #d8dee9;
+  --color-text-secondary-light: #8e97a8;
+  --color-text-secondary-dark: #8e97a8;
   --color-border-light: #434c5e;
   --color-border-dark: #434c5e;
   --color-danger: #bf616a;
+  --chip-bg: #434c5e;
+  --chip-text: #d8dee9;
+  --chip-overdue-bg: rgb(191 97 106 / 0.25);
+  --chip-overdue-text: #ecb1b5;
+  --on-primary: #2e3440;
+  --row-border: #3b4252;
+  --checkbox-border: #4c566a;
+  --drawer-bg: #252a33;
+  --fab-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  --dialog-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.6);
 }
 
-[data-theme="dracula"] {
-  --color-primary: #bd93f9;
-  --color-primary-hover: #a87ef0;
-  --color-surface-light: #282a36;
-  --color-surface-dark: #282a36;
-  --color-card-light: #343746;
-  --color-card-dark: #343746;
-  --color-text-light: #f8f8f2;
-  --color-text-dark: #f8f8f2;
-  --color-text-secondary-light: #bfbfbf;
-  --color-text-secondary-dark: #bfbfbf;
-  --color-border-light: #44475a;
-  --color-border-dark: #44475a;
-  --color-danger: #ff5555;
+/* Editorial · Ink (warm) — near-black warm ink, aged gold */
+[data-theme="ed-ink"] {
+  --color-primary: #d9b882;
+  --color-primary-hover: #c4a572;
+  --color-surface-light: #17140f;
+  --color-surface-dark: #17140f;
+  --color-card-light: #1f1b14;
+  --color-card-dark: #1f1b14;
+  --color-text-light: #ece4cf;
+  --color-text-dark: #ece4cf;
+  --color-text-secondary-light: #8a8170;
+  --color-text-secondary-dark: #8a8170;
+  --color-border-light: #2e2820;
+  --color-border-dark: #2e2820;
+  --color-danger: #cf776a;
+  --chip-bg: #2a2518;
+  --chip-text: #cfc3a7;
+  --chip-overdue-bg: rgb(207 119 106 / 0.22);
+  --chip-overdue-text: #ecb8ae;
+  --on-primary: #17140f;
+  --row-border: #262118;
+  --checkbox-border: #4a4334;
+  --drawer-bg: #110e0a;
+  --fab-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+  --dialog-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.75);
 }
 
-[data-theme="onyx"] {
-  --color-primary: #f5ecd0;
-  --color-primary-hover: #e0d5b3;
-  --color-surface-light: #141414;
-  --color-surface-dark: #141414;
-  --color-card-light: #1e1e1e;
-  --color-card-dark: #1e1e1e;
-  --color-text-light: #d1bf82;
-  --color-text-dark: #d1bf82;
-  --color-text-secondary-light: #a6905a;
-  --color-text-secondary-dark: #a6905a;
-  --color-border-light: #5c4d2e;
-  --color-border-dark: #5c4d2e;
-  --color-danger: #ef4444;
+/* Editorial · Ink (cool) — near-black cool ink, muted sage */
+[data-theme="ed-ink-cool"] {
+  --color-primary: #9ab8a4;
+  --color-primary-hover: #86a691;
+  --color-surface-light: #12161a;
+  --color-surface-dark: #12161a;
+  --color-card-light: #181d22;
+  --color-card-dark: #181d22;
+  --color-text-light: #e4e8ec;
+  --color-text-dark: #e4e8ec;
+  --color-text-secondary-light: #7d8791;
+  --color-text-secondary-dark: #7d8791;
+  --color-border-light: #262d34;
+  --color-border-dark: #262d34;
+  --color-danger: #c97a7a;
+  --chip-bg: #222932;
+  --chip-text: #bcc6d0;
+  --chip-overdue-bg: rgb(201 122 122 / 0.22);
+  --chip-overdue-text: #eab7b7;
+  --on-primary: #12161a;
+  --row-border: #1f252b;
+  --checkbox-border: #3e4852;
+  --drawer-bg: #0d1115;
+  --fab-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+  --dialog-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.75);
 }
 
-[data-theme="onyx"] * {
-  scrollbar-color: #a6905a transparent;
-}
-[data-theme="onyx"] ::-webkit-scrollbar-thumb {
-  background: #a6905a;
-}
-[data-theme="onyx"] select option {
-  background-color: #141414;
-  color: #d1bf82;
+/* Shared editorial skin */
+
+[data-theme="editorial"],
+[data-theme^="ed-"] {
+  --ed-serif: "Instrument Serif", Georgia, serif;
+  font-family: "Inter", "Noto Sans", system-ui, sans-serif;
 }
 
-/* Dark text/icons on primary buttons/FAB */
-[data-theme="onyx"] .bg-primary,
-[data-theme="onyx"] .bg-primary .text-white {
-  color: #141414;
+:is([data-theme="editorial"], [data-theme^="ed-"])
+  :is(.screen-title, .wordmark, .sheet-input, .dialog-message, .group-header, .completed-header, .drawer-workspace, .mode-card-title) {
+  font-family: var(--ed-serif);
+  font-style: italic;
+  font-weight: 400;
 }
 
-/* FAB: match text gold instead of cream primary */
-[data-theme="onyx"] .rounded-full.bg-primary.shadow-lg {
-  background-color: #d1bf82;
+:is([data-theme="editorial"], [data-theme^="ed-"]) .screen-title {
+  font-size: 32px;
+  letter-spacing: -0.01em;
+}
+:is([data-theme="editorial"], [data-theme^="ed-"]) .wordmark {
+  font-size: 68px;
+  letter-spacing: -0.02em;
+}
+:is([data-theme="editorial"], [data-theme^="ed-"]) .sheet-input {
+  font-size: 26px;
+  letter-spacing: -0.01em;
+}
+:is([data-theme="editorial"], [data-theme^="ed-"]) .dialog-message {
+  font-size: 20px;
+}
+:is([data-theme="editorial"], [data-theme^="ed-"]) .group-header {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  opacity: 1;
+  color: var(--color-text-secondary-light);
+  padding-top: 20px;
+  padding-bottom: 6px;
+}
+:is([data-theme="editorial"], [data-theme^="ed-"]) .drawer-workspace {
+  font-size: 17px;
+}
+:is([data-theme="editorial"], [data-theme^="ed-"]) .mode-card-title {
+  font-size: 17px;
+}
+:is([data-theme="editorial"], [data-theme^="ed-"]) .completed-header {
+  color: var(--color-text-secondary-light);
 }
 
-/* Checkbox borders: gold instead of gray */
-[data-theme="onyx"] .border-gray-400,
-[data-theme="onyx"] .border-gray-500 {
-  border-color: #a6905a;
+:is([data-theme="editorial"], [data-theme^="ed-"]) header {
+  border-bottom-color: var(--row-border);
 }
 
-/* Hover/focus highlights: gold tint instead of white */
-[data-theme="onyx"] .dark\:hover\:bg-white\/10:hover,
-[data-theme="onyx"] .dark\:hover\:bg-white\/5:hover,
-[data-theme="onyx"] .dark\:bg-white\/10 {
-  background-color: rgb(209 191 130 / 0.1);
+:is([data-theme="editorial"], [data-theme^="ed-"]) .taskrow {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-right: 20px;
+  border-bottom: 1px solid var(--row-border);
+}
+:is([data-theme="editorial"], [data-theme^="ed-"]) .task-title {
+  font-size: 15px;
+}
+:is([data-theme="editorial"], [data-theme^="ed-"]) .task-desc {
+  font-size: 13px;
+  opacity: 1;
+  color: var(--color-text-secondary-light);
 }
 
-/* Linux window border */
-[data-theme="onyx"] .linux-window-border {
-  border-color: rgba(209, 191, 130, 0.15);
+:is([data-theme="editorial"], [data-theme^="ed-"]) .task-checkbox {
+  width: 22px;
+  height: 22px;
+}
+:is([data-theme="editorial"], [data-theme^="ed-"])
+  :is(.task-checkbox, .subtask-checkbox).border-gray-400 {
+  border-color: var(--checkbox-border);
 }
 
-
-[data-theme="solarized"] {
-  --color-primary: #268bd2;
-  --color-primary-hover: #1e7ac0;
-  --color-surface-light: #002b36;
-  --color-surface-dark: #002b36;
-  --color-card-light: #073642;
-  --color-card-dark: #073642;
-  --color-text-light: #93a1a1;
-  --color-text-dark: #93a1a1;
-  --color-text-secondary-light: #657b83;
-  --color-text-secondary-dark: #657b83;
-  --color-border-light: #094959;
-  --color-border-dark: #094959;
-  --color-danger: #dc322f;
+:is([data-theme="editorial"], [data-theme^="ed-"]) .fab {
+  color: var(--on-primary);
+  box-shadow: var(--fab-shadow);
+}
+:is([data-theme="editorial"], [data-theme^="ed-"]) .fab:disabled {
+  box-shadow: none;
 }
 
-
-/* ── Ink (e-ink screen) theme ────────────────────────────────────── */
-
-[data-theme="ink"] {
-  --color-primary: #000000;
-  --color-primary-hover: #1a1a1a;
-  --color-surface-light: #ffffff;
-  --color-surface-dark: #ffffff;
-  --color-card-light: #f0f0f0;
-  --color-card-dark: #f0f0f0;
-  --color-text-light: #000000;
-  --color-text-dark: #000000;
-  --color-text-secondary-light: #444444;
-  --color-text-secondary-dark: #444444;
-  --color-border-light: #000000;
-  --color-border-dark: #000000;
-  --color-danger: #000000;
+:is([data-theme="editorial"], [data-theme^="ed-"]) .drawer {
+  background: var(--drawer-bg);
+}
+:is([data-theme="editorial"], [data-theme^="ed-"]) .drawer-list-item.active {
+  color: var(--color-primary);
+}
+:is([data-theme="editorial"], [data-theme^="ed-"]) .drawer-list-item.active svg:first-of-type {
+  opacity: 1;
 }
 
-/* Suppress all shadows and decorative effects on ink screens */
-[data-theme="ink"] * {
-  box-shadow: none !important;
-  text-shadow: none !important;
-  scrollbar-color: #444444 transparent;
+:is([data-theme="editorial"], [data-theme^="ed-"]) .sheet {
+  background: var(--color-surface-light);
+  border-top: 1px solid var(--color-border-light);
+  border-radius: 20px 20px 0 0;
 }
-[data-theme="ink"] ::-webkit-scrollbar-thumb {
-  background: #444444;
+[data-theme="ed-mono"] .sheet {
+  border-radius: 0;
+  border-top: 2px solid #000000;
 }
-[data-theme="ink"] select option {
-  background-color: #ffffff;
-  color: #000000;
+
+:is([data-theme="editorial"], [data-theme^="ed-"]) .dialog {
+  border-radius: 4px;
+  box-shadow: var(--dialog-shadow);
 }
-[data-theme="ink"] .linux-window-border {
-  border-color: rgba(0, 0, 0, 0.5);
+[data-theme="ed-mono"] .dialog {
+  border-radius: 2px;
+}
+
+:is([data-theme="editorial"], [data-theme^="ed-"])
+  :is(.btn-primary, .btn-danger, .btn-ghost, .input) {
+  border-radius: 9999px;
+}
+:is([data-theme="editorial"], [data-theme^="ed-"]) :is(.btn-primary, .btn-danger) {
+  color: var(--on-primary);
+}
+
+:is([data-theme="editorial"], [data-theme^="ed-"]) .setup-card {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+:is([data-theme="editorial"], [data-theme^="ed-"]) .mode-card {
+  background: var(--color-card-light);
 }
 
 /* ── Dropdown/kebab menu shadow + open/close animation ───────────── */

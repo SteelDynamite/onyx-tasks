@@ -104,7 +104,7 @@
 
   <!-- Task content -->
   <div
-    class="group flex w-full cursor-pointer items-start gap-3 bg-surface-light py-3 pr-4 text-left hover:bg-black/5 dark:bg-surface-dark dark:hover:bg-white/5"
+    class="taskrow group flex w-full cursor-pointer items-start gap-3 bg-surface-light py-3 pr-4 text-left hover:bg-black/5 dark:bg-surface-dark dark:hover:bg-white/5"
     style="padding-left: {1 + depth * 1.5}rem; transform: translateX({swipeX}px); transition: {swiping ? 'none' : 'transform 0.2s ease-out'}"
     role="button"
     tabindex="0"
@@ -119,12 +119,12 @@
       class="-m-2 flex shrink-0 items-center justify-center p-2"
     >
       <div
-        class="flex h-5 w-5 items-center justify-center rounded-full border-2 transition-colors duration-150 {isCompleted || justChecked
+        class="task-checkbox flex h-5 w-5 items-center justify-center rounded-full border-2 transition-colors duration-150 {isCompleted || justChecked
           ? 'border-primary bg-primary'
           : 'border-gray-400 dark:border-gray-500'}"
       >
       {#if isCompleted || justChecked}
-        <svg class="h-3 w-3 text-white" viewBox="0 0 20 20" fill="currentColor">
+        <svg class="task-check h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
           <path
             fill-rule="evenodd"
             d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -136,19 +136,19 @@
 
     <!-- Content -->
     <div class="min-w-0 flex-1">
-      <p class="text-sm {isCompleted ? 'line-through opacity-50' : 'font-medium'}">
+      <p class="task-title text-sm {isCompleted ? 'line-through opacity-50' : 'font-medium'}">
         {task.title}
       </p>
       {#if task.description}
-        <p class="mt-0.5 text-xs opacity-40 line-clamp-1">{task.description}</p>
+        <p class="task-desc mt-0.5 text-xs opacity-40 line-clamp-1">{task.description}</p>
       {/if}
       {#if task.date && dateChipStyle !== "hidden"}
         {#if dateChipStyle === "overdue"}
-          <span class="mt-1 inline-block rounded-full border border-danger px-2 py-0.5 text-xs text-danger opacity-80">
+          <span class="chip chip-overdue mt-1 inline-block rounded-full border border-danger px-2 py-0.5 text-xs text-danger opacity-80">
             {formatDateLabel(task.date)}
           </span>
         {:else}
-          <span class="mt-1 inline-block rounded-full border border-border-light px-2 py-0.5 text-xs opacity-50 dark:border-border-dark">
+          <span class="chip mt-1 inline-block rounded-full border border-border-light px-2 py-0.5 text-xs opacity-50 dark:border-border-dark">
             {formatDateLabel(task.date)}
           </span>
         {/if}

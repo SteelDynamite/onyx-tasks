@@ -249,7 +249,7 @@
       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
     </svg>
     {#if task.date}
-      <div class="flex items-center gap-1.5 rounded-full border border-border-light bg-black/5 px-3 py-1 text-sm dark:border-border-dark dark:bg-white/10">
+      <div class="detail-date-chip flex items-center gap-1.5 rounded-full border border-border-light bg-black/5 px-3 py-1 text-sm dark:border-border-dark dark:bg-white/10">
         <button onclick={() => (showDatePicker = true)} class="hover:opacity-70">
           {formatDateChip(task.date, task.has_time)}
         </button>
@@ -308,7 +308,7 @@
       <!-- Add subtask (top of list) -->
       {#if addingSubtask}
         <div class="flex items-center gap-2 px-2 py-1">
-          <div class="h-4 w-4 shrink-0 rounded-full border-2 border-gray-400 dark:border-gray-500"></div>
+          <div class="subtask-checkbox h-4 w-4 shrink-0 rounded-full border-2 border-gray-400 dark:border-gray-500"></div>
           <input
             type="text"
             bind:value={subtaskTitle}
@@ -340,7 +340,7 @@
           <!-- svelte-ignore a11y_no_static_element_interactions -->
           <div
             onclick={(e) => { e.stopPropagation(); app.toggleTask(subtask.id); }}
-            class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 border-gray-400 dark:border-gray-500"
+            class="subtask-checkbox flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 border-gray-400 dark:border-gray-500"
           >
           </div>
           <span class="text-sm">{subtask.title}</span>
@@ -380,9 +380,9 @@
                 <!-- svelte-ignore a11y_no_static_element_interactions -->
                 <div
                   onclick={(e) => { e.stopPropagation(); app.toggleTask(subtask.id); }}
-                  class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 border-primary bg-primary"
+                  class="subtask-checkbox flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 border-primary bg-primary"
                 >
-                  <svg class="h-2.5 w-2.5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                  <svg class="task-check h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" />
                   </svg>
                 </div>
