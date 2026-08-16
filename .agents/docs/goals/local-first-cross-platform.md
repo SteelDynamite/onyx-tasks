@@ -1,4 +1,5 @@
 ---
+description: "Deliver fast cross-platform task management with portable local files as the foundation."
 keywords: [local-first, cross-platform, workspaces, performance]
 ---
 

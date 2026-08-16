@@ -1,4 +1,5 @@
 ---
+description: "Establish reproducible GUI cold-start measurements and evidence-based performance budgets."
 status: backlog
 keywords: [performance, startup, measurement, gui]
 ---

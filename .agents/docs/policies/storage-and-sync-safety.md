@@ -1,4 +1,5 @@
 ---
+description: "Preserve validation, atomicity, recoverability, and credential safety across storage and sync."
 keywords: [storage, sync, security, atomic-writes, validation]
 ---
 

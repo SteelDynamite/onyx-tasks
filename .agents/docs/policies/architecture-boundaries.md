@@ -1,4 +1,5 @@
 ---
+description: "Keep domain behavior in the Rust core and platform frontends thin."
 keywords: [architecture, core, cli, tauri, frontend]
 ---
 

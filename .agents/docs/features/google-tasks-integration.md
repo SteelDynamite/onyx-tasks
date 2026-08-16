@@ -1,4 +1,5 @@
 ---
+description: "Complete secure onboarding and faithful read-only Google Tasks imports."
 status: in-progress
 keywords: [google-tasks, oauth, import, onboarding]
 ---

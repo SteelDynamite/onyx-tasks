@@ -1,4 +1,5 @@
 ---
+description: "Prioritize remaining high-value GUI capabilities beyond search and mobile basics."
 status: draft
 keywords: [gui, markdown, storage, macos, performance]
 ---

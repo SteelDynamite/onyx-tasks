@@ -1,4 +1,5 @@
 ---
+description: "Import Google Tasks as a stable, remote-authoritative read-only workspace."
 keywords: [google-tasks, import, sync, read-only]
 ---
 

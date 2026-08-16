@@ -1,4 +1,5 @@
 ---
+description: "Generate, build, and smoke-test the Tauri application on Android and iOS."
 keywords: [mobile, android, ios, tauri, build]
 ---
 

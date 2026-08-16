@@ -1,4 +1,5 @@
 ---
+description: "Prefer current pre-alpha schemas over migration support for unreleased formats."
 keywords: [pre-alpha, migrations, compatibility]
 ---
 

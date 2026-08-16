@@ -1,4 +1,5 @@
 ---
+description: "Replace placeholder Google OAuth credentials with production-ready configuration and tests."
 status: backlog
 keywords: [google-tasks, oauth, credentials]
 ---

@@ -1,4 +1,5 @@
 ---
+description: "Resolve WebDAV divergence deterministically while preserving conflicting local content."
 keywords: [webdav, sync, conflicts, offline, recovery]
 ---
 

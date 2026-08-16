@@ -1,4 +1,5 @@
 ---
+description: "Store local-first workspaces as portable Markdown tasks with JSON metadata."
 keywords: [storage, markdown, yaml, workspace, local-first]
 ---
 

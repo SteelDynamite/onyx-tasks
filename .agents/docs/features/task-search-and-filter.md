@@ -1,4 +1,5 @@
 ---
+description: "Add task search and useful filtering without disrupting list behavior."
 status: ready
 keywords: [search, filters, tasks, gui]
 ---
