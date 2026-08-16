@@ -365,5 +365,4 @@ Follow conventional commits:
 - [Cargo Book](https://doc.rust-lang.org/cargo/)
 - [clap Documentation](https://docs.rs/clap/)
 - [serde Documentation](https://serde.rs/)
-- [PLAN.md](../PLAN.md) - Project roadmap
 - [API.md](API.md) - API documentation

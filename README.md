@@ -16,7 +16,7 @@ A **local-first, cross-platform tasks application** built with Rust. Inspired by
 ```
 onyx/
 ├── Cargo.toml                    # Workspace definition
-├── PLAN.md                       # Detailed project plan
+├── AGENTS.md                     # Repository agent instructions
 ├── README.md                     # This file
 ├── crates/
 │   ├── onyx-core/          # Core library (backend)
@@ -31,10 +31,7 @@ onyx/
 
 ## Project Status
 
-- **Phase 1** (Core + CLI): Complete
-- **Phase 2** (WebDAV Sync): Complete — backend, CLI, and GUI all wired
-- **Phase 3** (GUI MVP): Complete
-- **Phase 4** (Mobile): In progress — Android preliminaries done (file-watcher gating, `tauri-plugin-credentials`, safe area insets, Android targets configured); needs `tauri android init`, build verification, and iOS setup
+The core library, CLI, desktop GUI, and WebDAV sync are implemented. Mobile support is in progress: Android preliminaries are complete, but Android build verification and iOS setup remain.
 
 ### Core Library (`onyx-core`)
 - Data models (Task, TaskList, AppConfig, WorkspaceConfig)
@@ -220,12 +217,10 @@ cargo test -- --nocapture
 
 ## What's Next?
 
-- **Phase 4** (in progress): Complete Android build (`tauri android init` + verification), iOS setup on macOS CI
-- **Phase 5**: GUI advanced features (rich markdown editor, search/filter, change storage folder)
-- **Phase 6**: Mobile polish and platform-specific integrations
-- **Phase 7**: Google Tasks importer and unique features
-
-See [PLAN.md](PLAN.md) for detailed roadmap.
+- Verify Android builds and establish iOS builds on macOS
+- Add task search and filtering
+- Complete Google Tasks OAuth and import
+- Improve mobile interactions and platform integrations
 
 ## License
 

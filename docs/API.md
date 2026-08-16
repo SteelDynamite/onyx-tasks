@@ -400,7 +400,7 @@ client.delete_file("old-task.md").await?;
 - **Conflict resolution**: Checksum-based — downloads remote file and compares SHA-256 checksums. Identical content is a false conflict (skipped). When different, remote wins and the local version is recovered as a duplicate task with a new UUID and `[RECOVERED FROM CONFLICT]` prefix, inserted adjacent to the original in `.listdata.json`
 - **Offline queue**: Pending operations are queued and replayed when connectivity returns
 - **Sync state**: Stored in `.syncstate.json` within the workspace directory
-- **Auto-sync**: Periodic polling (configurable `sync_interval_secs`), debounced file-change trigger (5s), window-focus trigger (30s stale threshold)
+- **Auto-sync**: Periodic polling using focused/unfocused workspace intervals, a debounced file-change trigger (5s), and a window-focus trigger when the last sync exceeds the focused interval
 - **Response size cap**: PROPFIND responses and file downloads are limited to 10 MB (checked via `Content-Length` header and actual body size) to prevent memory exhaustion from malicious servers
 - **Path traversal protection**: Sync paths are validated to reject `..` components and backslashes anywhere in the path before any file system operation
 - **Concurrent sync lock**: File-based `.sync.lock` prevents overlapping sync operations on the same workspace. Stale locks older than 5 minutes are automatically cleaned up
