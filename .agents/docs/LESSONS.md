@@ -1,5 +1,6 @@
 ---
 doc-manifest:
+  creator-skill: doc-lesson-creator
   validation:
     frontmatter:
       keywords:

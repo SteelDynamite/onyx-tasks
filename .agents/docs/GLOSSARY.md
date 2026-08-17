@@ -1,5 +1,6 @@
 ---
 doc-manifest:
+  creator-skill: doc-glossary-creator
   validation:
     filename-pattern: "**/*.md"
 ---

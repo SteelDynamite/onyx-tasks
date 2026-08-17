@@ -1,5 +1,6 @@
 ---
 doc-manifest:
+  creator-skill: doc-policy-creator
   validation:
     frontmatter:
       keywords:

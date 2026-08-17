@@ -1,5 +1,6 @@
 ---
 doc-manifest:
+  creator-skill: doc-runbook-creator
   validation:
     frontmatter:
       keywords:

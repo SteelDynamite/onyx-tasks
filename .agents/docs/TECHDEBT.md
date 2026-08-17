@@ -1,5 +1,6 @@
 ---
 doc-manifest:
+  creator-skill: doc-techdebt-creator
   priorities: true
   validation:
     frontmatter:

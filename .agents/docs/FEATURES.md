@@ -1,5 +1,6 @@
 ---
 doc-manifest:
+  creator-skill: doc-feature-creator
   priorities: true
   display-fields: [status]
   validation:
