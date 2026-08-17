@@ -1,6 +1,5 @@
 ---
 doc-manifest:
-  version: 1
   validation:
     frontmatter:
       keywords:

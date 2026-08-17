@@ -1,5 +1,5 @@
 ---
-description: "Build and smoke-test shared Tauri task workflows on Android and iOS."
+description: "Read when implementing or assessing Android/iOS support; defines remaining build, smoke-test, and architecture work."
 status: in-progress
 keywords: [mobile, android, ios, tauri, build]
 ---

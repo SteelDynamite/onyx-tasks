@@ -14,7 +14,7 @@ Use this complete shape. Replace the comment; do not retain it.
 
 ```md
 ---
-description: "One-line routing summary."
+description: "When this document is relevant or must be read; what it provides."
 ---
 # Term
 

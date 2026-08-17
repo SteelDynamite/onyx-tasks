@@ -1,6 +1,5 @@
 ---
 doc-manifest:
-  version: 1
   priorities: true
   display-fields: [status]
   validation:

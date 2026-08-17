@@ -1,5 +1,5 @@
 ---
-description: "Complete WebDAV progress feedback, controls, and server compatibility verification."
+description: "Read when completing WebDAV sync UX or compatibility; defines required feedback, controls decisions, and server verification."
 status: ready
 keywords: [webdav, sync, progress, testing]
 ---

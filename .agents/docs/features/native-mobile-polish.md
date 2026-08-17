@@ -1,5 +1,5 @@
 ---
-description: "Improve touch usability and native task-capture integrations after mobile builds stabilize."
+description: "Read when planning mobile UX or native integrations after builds stabilize; identifies candidate touch and task-capture work."
 status: draft
 keywords: [mobile, ios, android, notifications, widgets]
 ---

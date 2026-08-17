@@ -1,5 +1,5 @@
 ---
-description: "Import Google Tasks as a stable, remote-authoritative read-only workspace."
+description: "Read before changing Google Tasks workspace semantics or sync direction; explains the stable, remote-authoritative read-only import."
 keywords: [google-tasks, import, sync, read-only]
 ---
 

@@ -1,5 +1,5 @@
 ---
-description: "Prefer current pre-alpha schemas over migration support for unreleased formats."
+description: "Must read before changing on-disk, config, sync, or credential formats; defines pre-alpha migration policy."
 keywords: [pre-alpha, migrations, compatibility]
 ---
 

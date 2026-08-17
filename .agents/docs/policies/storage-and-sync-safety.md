@@ -1,5 +1,5 @@
 ---
-description: "Preserve validation, atomicity, recoverability, and credential safety across storage and sync."
+description: "Must read before changing storage, sync, credentials, or import/export paths; defines validation, atomicity, and recoverability safeguards."
 keywords: [storage, sync, security, atomic-writes, validation]
 ---
 

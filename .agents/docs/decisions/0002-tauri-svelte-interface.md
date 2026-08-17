@@ -1,5 +1,5 @@
 ---
-description: "Build the cross-platform GUI with Tauri, Svelte, and a shared Rust core."
+description: "Read before changing GUI technology or frontend/core boundaries; explains the Tauri, Svelte, and shared Rust core choice."
 keywords: [tauri, svelte, tailwind, gui, mobile]
 ---
 

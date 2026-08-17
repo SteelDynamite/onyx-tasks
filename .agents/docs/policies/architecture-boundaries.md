@@ -1,5 +1,5 @@
 ---
-description: "Keep domain behavior in the Rust core and platform frontends thin."
+description: "Must read before adding domain behavior or frontend commands; defines Rust core and platform boundary rules."
 keywords: [architecture, core, cli, tauri, frontend]
 ---
 

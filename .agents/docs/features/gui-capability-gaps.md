@@ -1,5 +1,5 @@
 ---
-description: "Prioritize remaining high-value GUI capabilities beyond search and mobile basics."
+description: "Read when prioritizing GUI work beyond search and basic mobile support; identifies candidate capability gaps and scope limits."
 status: draft
 keywords: [gui, markdown, storage, macos, performance]
 ---

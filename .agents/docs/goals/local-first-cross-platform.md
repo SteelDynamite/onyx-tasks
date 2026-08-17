@@ -1,5 +1,5 @@
 ---
-description: "Deliver fast cross-platform task management with portable local files as the foundation."
+description: "Read when prioritizing product or architecture work; defines local-first, cross-platform direction and tradeoffs."
 keywords: [local-first, cross-platform, workspaces, performance]
 ---
 

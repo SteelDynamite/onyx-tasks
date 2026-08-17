@@ -1,5 +1,5 @@
 ---
-description: "Evaluate advanced task workflows after reliability and search foundations are complete."
+description: "Read when prioritizing advanced task workflows; bounds candidate work until reliability and search foundations are complete."
 status: draft
 keywords: [recurring-tasks, templates, bulk-edit, integrations]
 ---

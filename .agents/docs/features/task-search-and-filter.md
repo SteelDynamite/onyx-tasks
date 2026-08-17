@@ -1,5 +1,5 @@
 ---
-description: "Add task search and useful filtering without disrupting list behavior."
+description: "Read when implementing task search or filters; defines initial scope and list-behavior constraints."
 status: ready
 keywords: [search, filters, tasks, gui]
 ---

@@ -1,5 +1,5 @@
 ---
-description: "Resolve WebDAV divergence deterministically while preserving conflicting local content."
+description: "Must read before changing WebDAV conflict handling; explains deterministic remote-wins resolution and local-content recovery."
 keywords: [webdav, sync, conflicts, offline, recovery]
 ---
 

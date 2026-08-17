@@ -16,7 +16,7 @@ Use this complete shape. Replace comments; do not retain them.
 
 ```md
 ---
-description: "One-line routing summary."
+description: "When this document is relevant or must be read; what it provides."
 priority: p2
 status: draft
 keywords:

@@ -1,5 +1,5 @@
 ---
-description: "Replace placeholder Google OAuth credentials with production-ready configuration and tests."
+description: "Read when planning or shipping Google OAuth onboarding; identifies placeholder credentials, risks, and retirement requirements."
 status: backlog
 keywords: [google-tasks, oauth, credentials]
 ---

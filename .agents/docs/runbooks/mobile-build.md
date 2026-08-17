@@ -1,5 +1,5 @@
 ---
-description: "Generate, build, and smoke-test the Tauri application on Android and iOS."
+description: "Use when generating, building, or smoke-testing Android/iOS apps; provides prerequisites, commands, verification, and troubleshooting."
 keywords: [mobile, android, ios, tauri, build]
 ---
 

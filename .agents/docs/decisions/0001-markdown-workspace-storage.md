@@ -1,5 +1,5 @@
 ---
-description: "Store local-first workspaces as portable Markdown tasks with JSON metadata."
+description: "Read before changing workspace storage or on-disk task representation; explains why Onyx uses portable Markdown tasks and JSON metadata."
 keywords: [storage, markdown, yaml, workspace, local-first]
 ---
 
